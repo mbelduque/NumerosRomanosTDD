@@ -28,13 +28,18 @@ public class NumerosRomanos {
     /**
      * Construye genericamente los números romanos a partir de los parametros
      */
-    private String construirRomano(int decena, int x, int y, int z) {
+    public String construirRomano(int decena, int x, int y, int z) {
         switch (decena) {
             case 4:
                 return LISTA_NUMEROS_ROMANOS.get(x) + LISTA_NUMEROS_ROMANOS.get(y); // XL -> 40
             case 9:
                 return LISTA_NUMEROS_ROMANOS.get(x) + LISTA_NUMEROS_ROMANOS.get(z); // XC -> 90
+            default:
+                return getStringRomano(decena, x, y);
         }
+    }
+
+    public String getStringRomano(int decena, int x, int y) {
         // Cubre los numeros del 10 al 30 (patron I + X)
         if (decena <= 3)
             return sumar(1, decena, "", LISTA_NUMEROS_ROMANOS.get(x));
@@ -57,3 +62,4 @@ public class NumerosRomanos {
     }
 
 }
+
